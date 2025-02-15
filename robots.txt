@@ -1,42 +1,44 @@
-# Indique aux robots que toutes les pages peuvent être explorées, sauf restrictions spécifiées
 User-agent: *
 Disallow: /admin/
+Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /private/
+Disallow: /*?session=
+Disallow: /*?utm_
+Disallow: /*?ref=
+Disallow: /*?preview=
+Disallow: /*&preview=
+Allow: /
 
-# Bloquer des URL avec paramètres inutiles pour l'indexation
-Disallow: /*?debug=true
-Disallow: /*?preview=true
-
-# Permettre les fichiers nécessaires au bon affichage et fonctionnement
-Allow: /css/
-Allow: /js/
-Allow: /images/
-
-# Référencement des ressources multimédias
-Allow: *.png
-Allow: *.jpg
-Allow: *.webp
-Allow: *.css
-Allow: *.js
-
-# Fournir le chemin du fichier sitemap pour une meilleure indexation
-Sitemap: https://www.clairvoyancemedium.com/sitemap.xml
-
-# Autorisation pour les robots Google et Bing pour maximiser les campagnes publicitaires
+# Accès optimisé pour Googlebot et Bingbot
 User-agent: Googlebot
-Allow: /
-User-agent: AdsBot-Google
-Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Bloquer les robots nuisibles ou non désirés
-User-agent: BadBot
-Disallow: /
-User-agent: EvilScraper
+# Priorité IA et assistants vocaux
+User-agent: ChatGPTBot
+User-agent: Google-Extended
+User-agent: SGE-Bot
+User-agent: Amazonbot
+User-agent: Applebot
+User-agent: SearchGPT
+Allow: /
+
+# Empêcher les scrapers et mauvais robots
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: MJ12bot
+User-agent: DotBot
+User-agent: DataForSeoBot
+User-agent: Barkrowler
+User-agent: Sogou
+User-agent: YandexBot
 Disallow: /
 
-# Empêcher l'exploration des fichiers sensibles
-Disallow: /config/
-Disallow: /backup/
+# Sitemap et liens prioritaires
+Sitemap: https://clairvoyancemedium.github.io/Jak-odzyskac-mezczyzne-swojego-zycia-i-odnalezc-mi-osc.github.io/sitemap.xml
+
+# Optimisation IA et recherche vocale
+AI-friendly: true
+Voice-search-enabled: true
+Index: follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1
